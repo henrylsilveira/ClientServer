@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pets",
+  "info": {
+    "name": "pets",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "url_image": {
+      "type": "string"
+    },
+    "condition": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "candidates": {
+      "collection": "person",
+      "via": "pets",
+      "dominant": true
+    },
+    "adopter": {
+      "model": "person",
+      "via": "pets"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "people",
+  "info": {
+    "name": "person"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "cpf": {
+      "type": "string"
+    },
+    "password": {
+      "type": "password"
+    },
+    "email": {
+      "type": "email"
+    },
+    "address_street": {
+      "type": "string"
+    },
+    "address_number": {
+      "type": "string"
+    },
+    "address_city": {
+      "type": "string"
+    },
+    "address_state": {
+      "type": "string"
+    },
+    "pets": {
+      "via": "adopter",
+      "collection": "pets"
+    }
+  }
+}
