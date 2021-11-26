@@ -1,8 +1,17 @@
 'use strict';
+const { sanitizeEntity } = require('strapi-utils');
 
-/**
- * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
- * to customize this controller
- */
+module.exports = {
+  async login(ctx) {
+    const { email, password } = ctx.request.body
+    const person = await strapi.services.person.findOne({ email, password });
 
-module.exports = {};
+    if (person) {
+      const jwt = await strapi.admin.services.token.createJwtToken(person.id)
+      return {
+        person: sanitizeEntity(person, { model: strapi.models.person }),
+        jwt
+      }
+    }
+  },
+};
